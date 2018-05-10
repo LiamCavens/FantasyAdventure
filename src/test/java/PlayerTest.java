@@ -21,6 +21,7 @@ public class PlayerTest {
     Knight knight;
     Dwarf dwarf;
     Sword sword;
+    Sword sword2;
     Axe axe;
     Staff staff;
     Cleric cleric;
@@ -33,6 +34,7 @@ public class PlayerTest {
     @Before
     public void before() {
         sword = new Sword("Chillrend", 15);
+        sword2 = new Sword("Sean Bean", 50);
         knight = new Knight("King Jamiroquai", 100, sword, true);
         axe = new Axe("Hatchet", 12);
         dwarf = new Dwarf("Gimli", 120, axe);
@@ -124,6 +126,24 @@ public class PlayerTest {
     public void protectorProtects() {
         dwarf.getProtector(dragon);
         wizard.castSpell(dwarf);
+        System.out.println(nkns.cast());
         assertEquals(100, dwarf.getProtectorsHealth());
+    }
+
+    @Test
+    public void protectorDies() {
+        dwarf.getProtector(dragon);
+        wizard.castSpell(dwarf);
+        wizard.castSpell(dwarf);
+        assertEquals(0, dwarf.getProtectors().size());
+    }
+
+    @Test
+    public void canKillProtectorAndAttack() {
+        dwarf.getProtector(dragon);
+        knight.setWeapon(sword2);
+        knight.attackPlayer(dwarf);
+      //  assertEquals(70, dwarf.getHealth());
+        assertEquals(200, dwarf.getProtectorsHealth());
     }
 }

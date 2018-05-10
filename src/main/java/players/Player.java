@@ -54,19 +54,25 @@ public abstract class Player {
     }
 
     public void takeDamage(Weapon weapon){
-        if (getProtectors().size() > 0){
+        int i = getProtectors().size();
+        ArrayList<MythicalCreature> deedprotectors = new ArrayList<>();
 
-            while (protectors.get(0).getHealth() > 0) {
+
+        if (i > 0) {
+            if (protectors.get(0).getHealth() > 0) {
 
                 int result = this.protectors.get(0).getHealth() - weapon.getAttackDamage();
                 this.protectors.get(0).setHealth(result);
 
                 if (this.protectors.get(0).getHealth() <= 0) {
+                    deedprotectors.add(protectors.get(0));
                     protectorDies();
                 }
             }
-
+        } if (getProtectors().size() == 0){
+            this.setHealth(this.getHealth() - weapon.getAttackDamage());
         }
+
     }
 
     public void takeDamageFromSpell(Spell spell) {
@@ -85,7 +91,7 @@ public abstract class Player {
                     protectorDies();
                 }
             }
-        }
+        }  this.health -= spell.getAttackDamage();
 
     }
 
