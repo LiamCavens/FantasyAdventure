@@ -1,6 +1,8 @@
 package spells;
 
-public class NorthKoreanNuclearStrike extends Spell {
+import interfaces.IDamage;
+
+public class NorthKoreanNuclearStrike extends Spell implements Castable, IDamage {
 
     public NorthKoreanNuclearStrike(String name, int attackDamage, String element) {
         super(name, attackDamage, element);

@@ -3,7 +3,7 @@ package healingitems;
 public class HealingHerb extends HealingItem implements Healable {
 
     public HealingHerb(int healingPower) {
-        super(healingPower = 15);
+        super(healingPower);
     }
 
     public String healing() {

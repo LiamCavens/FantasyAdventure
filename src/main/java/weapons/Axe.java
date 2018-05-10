@@ -1,6 +1,8 @@
 package weapons;
 
-public class Axe extends Weapon implements Attackable {
+import interfaces.IDamage;
+
+public class Axe extends Weapon implements Attackable, IDamage {
 
     public Axe(String name, int attackDamage) {
         super(name, attackDamage);

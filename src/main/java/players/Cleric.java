@@ -13,7 +13,15 @@ public class Cleric extends Player {
     }
 
     public void healPlayer(Player player){
-        int result = getHealth() + healingItem.getHealingPower();
+        int result = player.getHealth() + healingItem.getHealingPower();
         player.setHealth(result);
+    }
+
+    public HealingItem getHealingItem() {
+        return healingItem;
+    }
+
+    public void setHealingItem(HealingItem healingItem) {
+        this.healingItem = healingItem;
     }
 }

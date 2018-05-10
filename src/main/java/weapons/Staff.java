@@ -1,14 +1,12 @@
 package weapons;
 
 import healingitems.Healable;
+import interfaces.IDamage;
 
-public class Staff extends Weapon implements Attackable, Healable {
+public class Staff extends Weapon implements Attackable, IDamage {
 
-    int healingPower;
-
-    public Staff(String name, int attackDamage, int healingPower) {
+    public Staff(String name, int attackDamage) {
         super(name, attackDamage);
-        this.healingPower = healingPower;
     }
 
     public String attackMotion() {
@@ -17,9 +15,5 @@ public class Staff extends Weapon implements Attackable, Healable {
 
     public String healing() {
         return "Waving my staff and making you feel goooooood";
-    }
-
-    public int getHealingPower() {
-        return healingPower;
     }
 }

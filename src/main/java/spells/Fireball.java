@@ -1,6 +1,8 @@
 package spells;
 
-public class Fireball extends Spell {
+import interfaces.IDamage;
+
+public class Fireball extends Spell implements Castable, IDamage {
 
     public Fireball(String name, int attackDamage, String element) {
         super(name, attackDamage, element);
